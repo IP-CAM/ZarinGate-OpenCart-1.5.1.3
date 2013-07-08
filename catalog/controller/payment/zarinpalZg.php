@@ -170,7 +170,7 @@ class ControllerPaymentZarinpalZg extends Controller {
 		$Amount = $this->currency->format($order_info['total'], $order_info['currency_code'], $order_info['currency_value'], false);		//echo $this->data['Amount'];
 		
 		$amount = $Amount/$order_info['currency_value'];
-		if ($order_info && $status="OK") {
+		if ($order_info && $status == "OK") {
 			if(($this->verify_payment($au, $amount))) {
 				$this->model_checkout_order->confirm($order_id, $this->config->get('zarinpal_order_status_id'), 'شماره سند تراکنش: '. $this->RefId);
 				
