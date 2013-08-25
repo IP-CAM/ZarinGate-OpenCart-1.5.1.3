@@ -84,6 +84,7 @@ class ControllerPaymentZarinpalZg extends Controller {
 			$json['success']= $this->data['action'];	
 			$this->response->setOutput(json_encode($json));
 		} else {
+			echo'ERR: '.$res->Status;
 			$this->CheckState($res);
 			//die();
 		}
@@ -145,6 +146,7 @@ class ControllerPaymentZarinpalZg extends Controller {
 					$this->RefId = $res->RefId;
 					return true;
 				} else {
+					echo'ERR: '.$res->Status;
 					return false;
 				}
 			}
