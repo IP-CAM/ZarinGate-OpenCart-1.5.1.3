@@ -6,7 +6,7 @@ class ControllerPaymentZarinpalZg extends Controller {
 	
 	protected function index() {
 		$this->language->load('payment/zarinpalZg');
-    	$this->data['button_confirm'] = $this->language->get('button_confirm');
+		$this->data['button_confirm'] = $this->language->get('button_confirm');
 		
 		$this->data['text_wait'] = $this->language->get('text_wait');
 		$this->data['text_ersal'] = $this->language->get('text_ersal');
@@ -78,14 +78,14 @@ class ControllerPaymentZarinpalZg extends Controller {
 							)
 						);
 		$res = $client->call('PaymentRequest', $parameters);
-		if($res->Status == 100){
-			$this->data['action'] = 'https://www.zarinpal.com/pg/StartPay/' . $res->Authority;
+		if($res['Status'] == 100){
+			$this->data['action'] = 'https://www.zarinpal.com/pg/StartPay/' . $res['Authority'];
 			$json = array();
 			$json['success']= $this->data['action'];	
 			$this->response->setOutput(json_encode($json));
 		} else {
-			echo'ERR: '.$res->Status;
-			$this->CheckState($res);
+			echo 'ERR: '. $res['Status'];
+			$this->CheckState($res['Status']);
 			//die();
 		}
 	}
@@ -127,7 +127,7 @@ class ControllerPaymentZarinpalZg extends Controller {
 			//$client = new SoapClient("http://pg.zarinpal.com/services/WebGate/wsdl");
 			 $client = new nusoap_client('https://de.zarinpal.com/pg/services/WebGate/wsdl', true);	
 			if ((!$client)){
-				echo  "Error: can not connect to ZarinPal.<br>";return false;
+				echo 'Error: can not connect to ZarinPal.<br>';return false;
 			} else {
 				$this->data['PIN'] = $this->config->get('zarinpal_PIN');
 				//$res = $client->PaymentVerification($this->data['PIN'], $authority ,$amount);
@@ -140,13 +140,13 @@ class ControllerPaymentZarinpalZg extends Controller {
 									);
 				$res = $client->call('PaymentVerification', $parameters);
 			
-				$this->CheckState($res->Status);
+				$this->CheckState($res['Status']);
 				
-				if($res->Status==100){
-					$this->RefId = $res->RefId;
+				if($res['Status']==100){
+					$this->RefId = $res['RefId'];
 					return true;
 				} else {
-					echo'ERR: '.$res->Status;
+					echo 'ERR: '. $res['Status'];
 					return false;
 				}
 			}
