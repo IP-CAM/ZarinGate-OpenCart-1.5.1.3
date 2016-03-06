@@ -1,9 +1,10 @@
 <?php 
-class ModelPaymentZARINPAL extends Model {
-  	public function getMethod() {
-		$this->load->language('payment/zarinpalZg');
+class ModelPaymentZARINPALZG extends Model {
 
-		if ($this->config->get('zarinpal_status')) {
+  	public function getMethod() {
+		$this->load->language('payment/zarinpalzg');
+
+		if ($this->config->get('zarinpalzg_status')) {
       		  	$status = TRUE;
       	} else {
 			$status = FALSE;
@@ -13,9 +14,9 @@ class ModelPaymentZARINPAL extends Model {
 	
 		if ($status) {  
       		$method_data = array( 
-        		'code'         => 'zarinpalZg',
+        		'code'         => 'zarinpalzg',
         		'title'      => $this->language->get('text_title'),
-				'sort_order' => $this->config->get('zarinpal_sort_order')
+				'sort_order' => $this->config->get('zarinpalzg_sort_order')
       		);
     	}
    

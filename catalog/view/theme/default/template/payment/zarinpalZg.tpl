@@ -9,7 +9,7 @@
 $('#button-confirm').bind('click', function() {
 	$.ajax({
 		type: 'GET',
-		url: 'index.php?route=payment/zarinpal/confirm',
+		url: 'index.php?route=payment/zarinpalzg/confirm',
 		dataType: 'json',		
 		beforeSend: function() {
 			$('#button-confirm').attr('disabled', true);
