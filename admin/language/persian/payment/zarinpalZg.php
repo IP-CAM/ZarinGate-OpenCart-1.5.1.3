@@ -8,7 +8,7 @@ $_['heading_title']       = 'زرين پال-زرین گیت';
 $_['text_payment']        = 'پرداخت';
 $_['text_success']        = '&#1605;&#1608;&#1601;&#1602;: &#1608;&#1740;&#1585;&#1575;&#1740;&#1588; &#1588;&#1583;!';
 $_['text_development']    = '<span style="color: green;">&#1570;&#1605;&#1575;&#1583;&#1607;</span>';
-$_['text_zarinpalzg']  = '<a onclick="window.open(\'http://www.zarinpalzg.com\');"><img src="view/image/payment/zarinpalzg.gif" alt="ZarinPal" title="ZarinPal" style="border: 1px solid #EEEEEE;" /></a>';
+$_['text_zarinpalzg']  = '<a onclick="window.open(\'https://www.zarinpal.com\');"><img src="view/image/payment/zarinpal.gif" alt="ZarinPal" title="ZarinPal" style="border: 1px solid #EEEEEE;" /></a>';
 
 // Entry
 $_['entry_PIN']      = 'کد دروازه پرداخت:<br/><small></small>';
